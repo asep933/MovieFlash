@@ -57,13 +57,14 @@ body,
   display: flex;
   align-items: center;
   flex-direction: column;
-  box-shadow: 2px 2px 6px black;
+  margin: 0 3px;
 }
 
 .image {
   width: 7rem;
   height: 14rem;
   object-fit: cover;
+  box-shadow: 2px 2px 6px black;
   transition: transform 0.2s ease-out;
 }
 
