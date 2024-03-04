@@ -52,7 +52,7 @@ body,
 }
 
 .popular-list {
-  width: auto;
+  width: 100%;
   height: 20rem;
   display: flex;
   align-items: center;
@@ -64,6 +64,7 @@ body,
   height: 14rem;
   object-fit: cover;
   transition: transform 0.2s ease-out;
+  box-shadow: 2px 2px 6px black;
 }
 
 .overflow {
@@ -102,15 +103,17 @@ body,
     margin-top: 6px;
   }
   .image {
-    width: 7rem;
+    width: 100%;
     height: 12rem;
-    box-shadow: 2px 2px 6px black;
+    flex-shrink: 1;
   }
   .overflow {
     padding: 0 8px;
   }
   .popular-list {
     height: 16rem;
+    flex-grow: 1;
+    width: auto;
   }
   .title-category {
     margin-left: 1.5rem;
@@ -120,14 +123,5 @@ body,
   }
   .rate {
     margin-bottom: 10px;
-  }
-}
-
-@media only screen and (min-width: 767px) {
-  .title-category {
-    margin-left: 3rem;
-  }
-  .popular-list {
-    height: 20rem;
   }
 }
