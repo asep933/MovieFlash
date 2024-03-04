@@ -53,11 +53,11 @@ body,
 
 .popular-list {
   width: 100%;
-  height: 20rem;
+  height: 14rem;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 0 3px;
+  margin: 12px 3px;
 }
 
 .image {
@@ -115,6 +115,7 @@ body,
     height: 16rem;
     flex-grow: 1;
     width: auto;
+    margin: 0 8px;
   }
   .title-category {
     margin-left: 1.5rem;
