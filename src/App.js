@@ -1,42 +1,42 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import MoviePopular from "./components/MovuePopular";
-import { getPopular } from "./api/index";
+import { getByQuery, getPopular } from "./api/index";
+import PopularList from "./components/PopularList";
 
 function App() {
   const [popular, setPopular] = useState([]);
+  const [dataSearch, setDataSearch] = useState([]);
+  const [query, setQuery] = useState("");
 
-  const res = async () => setPopular(await getPopular());
+  const resPopular = async () => setPopular(await getPopular());
+  const resQuery = async () => setDataSearch(await getByQuery(query));
 
   useEffect(() => {
-    res();
+    resPopular();
   }, []);
 
-  console.log(popular);
+  useEffect(() => {
+    resQuery();
+  }, [query]);
+
+  const handleClick = (e) => {
+    setQuery(e.target.value);
+  };
 
   return (
-    <div className="container">
-      <header className="container">
-        <div className="title-container">
-          <h1 className="title">MovieFlash</h1>
-          <input className="input" placeholder="search movie..." type="text" />
-        </div>
+    <header className="container">
+      <div className="title-container">
+        <h1 className="title">MovieFlash</h1>
+        <input
+          onChange={(e) => handleClick(e)}
+          className="input"
+          placeholder="search movie..."
+          type="text"
+        />
+      </div>
 
-        <h3 className="title-category">Popular</h3>
-
-        <div className="warp">
-          {popular.map((data) => (
-            <div key={data.length}>
-              <MoviePopular
-                poster_path={`https://image.tmdb.org/t/p/w780${data.poster_path}`}
-                title={data.title}
-                vote_average={data.vote_average}
-              />
-            </div>
-          ))}
-        </div>
-      </header>
-    </div>
+      <PopularList popular={popular} dataSearch={dataSearch} />
+    </header>
   );
 }
 
