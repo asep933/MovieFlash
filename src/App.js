@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { getByQuery, getPopular } from "./api/index";
 import PopularList from "./components/PopularList";
+import Navbar from "./components/Navbar";
+import TopRated from "./components/TopRated";
 
-function App() {
+const App = () => {
   const [popular, setPopular] = useState([]);
   const [dataSearch, setDataSearch] = useState([]);
   const [query, setQuery] = useState("");
@@ -19,25 +21,21 @@ function App() {
     resQuery();
   }, [query]);
 
-  const handleClick = (e) => {
-    setQuery(e.target.value);
-  };
-
   return (
-    <header className="container">
-      <div className="title-container">
-        <h1 className="title">MovieFlash</h1>
-        <input
-          onChange={(e) => handleClick(e)}
-          className="input"
-          placeholder="search movie..."
-          type="text"
-        />
-      </div>
+    <>
+      <header className="container">
+        <div className="hero">
+          <Navbar setQuery={setQuery} />
 
-      <PopularList popular={popular} dataSearch={dataSearch} />
-    </header>
+          <PopularList popular={popular} dataSearch={dataSearch} />
+        </div>
+      </header>
+
+      <section id="top-rated" className="container-pageTwo">
+        <TopRated />
+      </section>
+    </>
   );
-}
+};
 
 export default App;
