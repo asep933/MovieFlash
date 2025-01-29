@@ -36,17 +36,12 @@ To run the project locally, follow these steps:
     npm install
     ```
 
-4. Create a `.env` file in the root directory and add your API key from TMDb:
-    ```bash
-    REACT_APP_TMDB_API_KEY=your_api_key_here
-    ```
-
-5. Run the development server:
+4. Run the development server:
     ```bash
     npm start
     ```
 
-6. Open your browser and go to `http://localhost:3000` to see the website in action.
+5. Open your browser and go to `http://localhost:3000` to see the website in action.
 
 ## Folder Structure
 
